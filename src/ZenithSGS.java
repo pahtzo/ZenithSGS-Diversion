@@ -7,7 +7,7 @@
 * to leverage the vulnerabilities found in the SatelliteQueryFileFolderUtility class.
 *
 * Usage:
-* java -jar ZenithSGS.jar -d "<base64 encoded serialized object to decode>"
+* java -jar ZenithSGS.jar -d "<decode base64 encoded serialized object>"
 * java -jar ZenithSGS.jar -sf "<file or directory to list on server>"
 * java -jar ZenithSGS.jar -sq "<SQL query to run on server>"
 * java -jar ZenithSGS.jar -su "<SQL update query to run on server>"
@@ -59,7 +59,7 @@ public class ZenithSGS {
                 "A basic Java object deserialize/serialize app for decoding/encoding the deserialization exploit object\n" +
                 "to leverage the vulnerabilities found in the SatelliteQueryFileFolderUtility class.\n\n" +
                 "Usage:\n" +
-                "java -jar ZenithSGS.jar -d \"<base64 encoded serialized object to decode>\"\n" +
+                "java -jar ZenithSGS.jar -d \"<decode base64 encoded serialized object>\"\n" +
                 "java -jar ZenithSGS.jar -sf \"<file or directory to list on server>\"\n" +
                 "java -jar ZenithSGS.jar -sq \"<SQL query to run on server>\"\n" +
                 "java -jar ZenithSGS.jar -su \"<SQL update query to run on server>\"";

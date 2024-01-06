@@ -12,7 +12,7 @@ A precompiled JAR file is located in the out/artifacts/ZenithSGS_jar directory.
 
 Usage:
 ```
-java -jar ZenithSGS.jar -d "<base64 encoded serialized object to decode>"
+java -jar ZenithSGS.jar -d "<decode base64 encoded serialized object>"
 java -jar ZenithSGS.jar -sf "<file or directory to list on server>"
 java -jar ZenithSGS.jar -sq "<SQL query to run on server>"
 java -jar ZenithSGS.jar -su "<SQL update query to run on server>"
